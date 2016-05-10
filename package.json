@@ -1,0 +1,33 @@
+{
+  "name": "kiritan_timer",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.12.5",
+    "jade": "^1.11.0",
+    "node-sass": "^3.7.0",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "watch": "^0.18.0",
+    "webpack": "^1.13.0"
+  },
+  "config": {
+    "ts_dir": "./src/ts",
+    "sass_dir": "./src/sass",
+    "jade_dir": "./src"
+  },
+  "scripts": {
+    "browser": "browser-sync start --server './dist' --files './dist/**/*' --no-open --no-notify",
+    "build-ts": "webpack",
+    "build-sass": "node-sass ./src/sass/style.scss ./dist/style.css --output-style compressed",
+    "build-jade": "jade ./src --out ./dist",
+    "build": "npm run build-jade & npm run build-sass & npm run build-ts",
+    "watch-ts": "watch 'npm run build-ts' $npm_package_config_ts_dir",
+    "watch-sass": "watch 'npm run build-sass' $npm_package_config_sass_dir",
+    "watch-jade": "watch 'npm run build-jade' $npm_package_config_jade_dir",
+    "watch": "npm run watch-ts & npm run watch-sass & npm run watch-jade",
+    "start": "npm run browser & npm run watch"
+  }
+}

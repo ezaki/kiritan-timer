@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - stable
+branches:
+  only:
+    - master
+install:
+  - npm install
+before_script:
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$GH_TOKEN" ] && npm install > /dev/null'
+script:
+  - npm run build
+after_success:
+  - git checkout -b gh-pages
+  - cd dist
+  - git add -A
+  - git commit -m 'Update'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/keika299/kiritan-timer.git gh-pages 2> /dev/null'
+env:
+  global:
+    - GIT_COMMITTER_NAME=keika299
+    - GIT_COMMITTER_EMAIL=keika299@gmail.com
+    - GIT_AUTHOR_NAME=keika299
+    - GIT_AUTHOR_EMAIL=keika299@gmail.com
+    - secure: ovhtqajWZM5kQxE0i3CoBIlZRh821PtyysTpHhUAwczL/4uDoFs0me8Dd59H+JSA2YNBOQBcvg62Iz1q0YutXq6VJTAG/xj60lzH7B6W7fgi0ek9w1fkqJEc0bZg/D/Crz3Yt47D+1AEMcGaOaA/ofxqqqtYv6Og9QNo7ZFxHMseUOd3aHrJshJKPrnDikPYHvm7ajtB6d/Qund7OmjHp6xfiQrf66lNxwcYChMyEN4u74rToJ8eF9M34dPXKpaBKrFR8Jka44EVgR1r7PYnICjZwLkiHR1h0GDid2DNFMOu7J3SGuqVg1fGZmEczgRdE036KK1MD+SVbT8qi53mQ0SVvlL8JfbeEkiLNJVqfS8wf48+k2QynpsH9Io9uYb4KqydoHnBwFzHfG5f6nBPlTmsF38DyYXBdHCj8x0r6fUkK/JhRC39xIb2Jb2cmH0Kx02Ci1LMl/Tb7OzMErw62zvsqGSlTl4U0cRStu2fM0v6v/IAITJFQrcQ5/dg0+i1rpy9wjASeg2Owod3INqq+aZx+DuTQDTTPIpnVRJ3ysuEYMfB7cfSZuP95CgG9FkyYFJKYUCxKpS9EQqI4Tq/w5NEtaP8lLWkdThSWupqGjvK7xPZYdy3nflMrqIAsNgqXorMak9yBiwODQPQirSdVhzp82ak08N9++hLcbOwqOA=

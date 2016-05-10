@@ -1,0 +1,93 @@
+doctype html
+html(lang="ja")
+	head
+		title きりぴょんタイマー
+		link(href="style.css", rel="stylesheet", type="text/css")
+		script(type="text/javascript", src="bundle.js")
+	body
+		div#timer-setting
+			div#timer-inputs
+				input#timer-hour.timer-num(type="number", placeholder="h")
+				span :
+				input#timer-min.timer-num(type="number", placeholder="m")
+				span :
+				input#timer-sec.timer-num(type="number", placeholder="s")
+			div#timer-control
+				button#timer-start すたーと
+				button#timer-stop すとっぷ
+				label
+					input#sound-switch(type="checkbox")
+					span
+		div#timer-display
+			p …時間、計りますか？
+		canvas#main-canvas
+		h1 きりぴょんタイマー
+		main
+			article
+				section
+					h1 これは何？
+					p
+						a(href="http://zunko.jp/") 東北きりたん
+						| がぴょんぴょんしながら時間を計ってくれるタイマーです。
+						br
+						| きりたんが頑張ってぴょんぴょんする姿に心打たれますね。
+				section
+					h1 使い方は？
+					p
+						| 一番上のボックスに計りたい時間を「時：分：秒」の形式で入れて下さい。
+						br
+						| 何も入力しない部分は「0」とされます。
+						br
+						| 「すたーと」ボタンまたはエンターキーで計測を始め、指定時間まできりたんがぴょんぴょんします。
+						br
+						| 指定時間になったらぴょんぴょん終了です。音が出る設定にしてる時はアラームが鳴ります。
+				section
+					h1 なんでずんだ餅の上で跳ねてるの？
+					p 固い床の上でぴょんぴょんさせるのははあまりにもかわいそうなので、ずんだ餅型クッションを用意しました。
+				section
+					h1 動作環境は？
+					p
+						| 2016年5月10日現在、最新版の google chrome (mac) での動作を確認しています。
+						br
+						| 新しいPC・mac のブラウザであれば大抵動くと思います。
+						br
+						| 動かないんだけどっていう報告があれば連絡下さい。（連絡先は下にあります）
+						br
+						| スマホでブラウザのタイマー使う人はいないかなと思って、スマホ版は作ってません。
+				section
+					h1 使用上の注意は？
+					p
+						| このアプリを利用して損害を被られた場合、当方は一切の責任を負いかねます。
+				section
+					h1 素材は何を使っているの？
+					p
+						| 画像は
+						a(href="http://zunko.jp/con_illust.html") 東北ずん子の公式素材ページ
+						| さんから、
+						br
+						| アラーム音は
+						a(href="http://on-jin.com/") On-Jin ～音人～
+						| さんからお借りしました。
+				section
+					h1 ソースコードとかは？
+					p
+						a(href="https://github.com/keika299/kiripyon-timer") keika299/kiripyon-timer
+						| に置いています。
+						br
+						| 詳細はそちらを見て下さい。
+				section
+					h1 今後の予定とかは？
+					p
+						| とりあえず通知を出すようにすること。
+						br
+						| 後はきりたんのボイスロイドが完成したら、計測終了の音をきりたんの声にしたいなーって思いますね。
+				section
+					h1 作者の連絡先は？
+					p
+						| twitterは
+						a(href="https://twitter.com/keika299") @keika299
+						| です。
+						br
+						| 要望など送ってくれたら嬉しいですけど、実際に対応できるかどうかは分かりません。
+		footer
+			p#created-by Created by keika299
