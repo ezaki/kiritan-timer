@@ -7,14 +7,14 @@ branches:
 install:
   - npm install
 before_script:
+  - git checkout -b gh-pages
 script:
   - npm run build
 after_success:
-  - git checkout -b gh-pages
   - cd dist
   - git add -A
   - git commit -m 'Update'
-  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/keika299/kiritan-timer.git gh-pages 2> /dev/null'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/keika299/kiritan-timer.git gh-pages'
 env:
   global:
     - GIT_COMMITTER_NAME=keika299
