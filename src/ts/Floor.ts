@@ -12,6 +12,9 @@ export default class Floor extends CanvasItemAbstract {
         super(stage);
         
         this.floorNumber = Math.ceil(this.canvasWidth * 0.5 / this.getWidth());
+        console.log(this.floorNumber);
+        console.log(this.getWidth());
+        console.log(this.canvasWidth);
         if (this.floorNumber < 2) {
             this.floorNumber = 2;
         }
@@ -49,10 +52,10 @@ export default class Floor extends CanvasItemAbstract {
     }
 
     private getWidth() {
-        return this.getImage().width;
+        return 160;
     }
 
     private getHeight() {
-        return this.getImage().height;
+        return 100;
     }
 }
