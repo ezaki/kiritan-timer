@@ -17,7 +17,7 @@ after_success:
   - git config user.email 'keika299@gmail.com'
   - git add -A
   - git commit -m 'Update'
-  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ $GH_TOKEN ] && git push -f --quiet https://$GH_TOKEN@github.com/keika299/kiritan-timer.git gh-pages'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ $GH_TOKEN ] && git push -f https://$GH_TOKEN@github.com/keika299/kiritan-timer.git gh-pages'
 env:
   global:
     - GIT_COMMITTER_NAME=keika299
