@@ -17,7 +17,8 @@ after_success:
 - git config user.email 'keika299@gmail.com'
 - git add -A
 - git commit -m 'Update'
-- '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && git push -f https://${GH_TOKEN}@github.com/keika299/kiritan-timer.git master:gh-pages'
+- '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && git
+  push -f --quiet https://${GH_TOKEN}@github.com/keika299/kiritan-timer.git master:gh-pages'
 env:
   global:
-    - secure: YJA5P4QwwJgfg8eXyi5YlM0MgAQ00QXtBa6DAaeR7abyuU0mSLCNBpkYpc5I+lHZwAIC9gR4uugAzYvb9fme3E6uvtcZ7sPUJSA2aiI7zVpJAxcWaxDzaP81ISNONQPK56cTbTO+cvGZHIn2xF7qt6IFqsgMFgaT9EbMBcZ0rAXCmX4gApMnGvN7E3iWp8ELcykFwVFsg/73HpMERdf3wK06RzupLr+qa+f6PPRQSRdnvZ32r4wMvlAJCvvY+RvlDqfJA2FUzTQ/K/5jo8tbH3YAX1VgXSeINhjXWyk3RkZLwNhOaSm+EI5wjXq7tDU4OY+nIsrZ1aDyZV3vzETJSOVbWgo+s19DeTvVZAmYmgMOS/w53O6Pii1x0J+tktWABDHTjKtPwv4QDXZNGCXqDRPYF2kNszPpIW0QT9iszw8HEjQDjChykcXl4Q0Ok0dniP2wlsC8dbjJHLbsbaPd5XAL/3uE2Xj6HYDZ4kZnxXyGQf//q9jwgJWSqQMj+7CuSIeaoUmrDb4E+6ETROCq0gEQXDjc66WApoIyKzotG7XOH1mmPH3SDmKCGPBL1MRUU/jfJEj7EYsiES+sMhCydndzlW/1VEOr80ZM+nBNTp4t0jXQm+/e/heYa3/ajnG6Wd/Cy2jL18j0ZjyekBWHo/GRdYStzwUxE1qSFQU1jbg=
+    -secure: XznEKxHjUWjjTGz9En4Ks6Br6/zt2IPZ5P/bOlJ4t76L7RpLPDTfw/gUjMbWHX0zTs8FAzX15e/tIYvDtkE/hF/+Q6sjPaO6fUbFlXPrTaqUp/F+AChXUUfAueAbDeiEn28lKmozwp5UML39VCRjBF1g4e35AZZt74JQixy8GHh6/4BzmWJKYomQdqyDB64AIVVKJIzoIEsrQLYBNgL5CrG56TluDGSNtohNohd+xCr8AOtinbnusHr5LGq6pKWlAIGNTr7mdMqMHP7Pl8JHpW3KobeMZsX/1qKwp1n9Ws/o9D9Ha/tTpyP55LPZQeB6ClUesHYKqNR7UVKJE+losJfGuM68hVIpT1BJN5tROHUQ98kC8ghjkKZ+f+S8lLPi6TAz6vWDUdhW2kbjygvnp0bGxHuMrh9Q0YLHnM8fOnNuAKKuM7tdCmk01Twj9UJ5tmasP3Jo8fVm5lNgVo/Uzr0KeLtuTA5TGa2e6GCoSNwris5D8Cy7VDT4A4/DJwhz8CTIgkPT8Gd10f/DjpFgaumNkamWFb9tl1049Hu2YC+dApb28us48qZ6izq//nEOv8zpyAaHZBZq9LV9OWoXqzE1/Ukkk7UiLMRgRuz7sf7dvBBBCdclELeCDSI/iwimZ5QdtyOU8ezST1n3F/dKdCcp+suwzsXvXwW8L0Bukj4=
