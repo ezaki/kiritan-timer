@@ -12,9 +12,6 @@ export default class Floor extends CanvasItemAbstract {
         super(stage);
         
         this.floorNumber = Math.ceil(this.canvasWidth * 0.5 / this.getWidth());
-        console.log(this.floorNumber);
-        console.log(this.getWidth());
-        console.log(this.canvasWidth);
         if (this.floorNumber < 2) {
             this.floorNumber = 2;
         }
@@ -23,9 +20,11 @@ export default class Floor extends CanvasItemAbstract {
         this.layer.height = this.getHeight();
         this.layer.width = this.canvasWidth + this.getWidth() * 4;
         var ctx = this.layer.getContext('2d');
-        for (var i = -1; i < this.floorNumber; i++) {
-            ctx.drawImage(Resource.zunda(), Math.floor(this.canvasWidth * 0.2 - this.getWidth() * 0.5 + this.canvasWidth / (this.floorNumber - 1) * i), 0, this.getWidth(), this.getHeight());
-        }
+        Resource.zunda().addEventListener('load', () => {
+            for (var i = -1; i < this.floorNumber; i++) {
+                ctx.drawImage(Resource.zunda(), Math.floor(this.canvasWidth * 0.2 - this.getWidth() * 0.5 + this.canvasWidth / (this.floorNumber - 1) * i), 0, this.getWidth(), this.getHeight());
+            }
+        });
     }
 
     getDrawData(time:number):IDrawData {

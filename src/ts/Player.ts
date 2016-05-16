@@ -13,11 +13,15 @@ export default class Player extends CanvasItemAbstract{
         this.layers['sit'] = document.createElement('canvas');
         this.layers['sit'].height = this.getHeight();
         this.layers['sit'].width = this.getWidth();
-        this.layers['sit'].getContext('2d').drawImage(Resource.kiritan_sit(), 0, 0, this.getWidth(), this.getHeight());
+        Resource.kiritan_sit().addEventListener('load', () => {
+            this.layers['sit'].getContext('2d').drawImage(Resource.kiritan_sit(), 0, 0, this.getWidth(), this.getHeight());
+        });
         this.layers['fly'] = document.createElement('canvas');
         this.layers['fly'].height = this.getHeight();
         this.layers['fly'].width = this.getWidth();
-        this.layers['fly'].getContext('2d').drawImage(Resource.kiritan_fly(), 0, 0, this.getWidth(), this.getHeight());
+        Resource.kiritan_fly().addEventListener('load', () => {
+            this.layers['fly'].getContext('2d').drawImage(Resource.kiritan_fly(), 0, 0, this.getWidth(), this.getHeight());
+        });
     }
     
     getDrawData(time: number): IDrawData {
