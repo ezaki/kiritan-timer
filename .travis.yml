@@ -5,20 +5,19 @@ branches:
   only:
   - master
 install:
-- npm install
+  - npm install
 before_script:
-- git checkout -b gh-pages
+  - git checkout -b gh-pages
 script:
-- npm run build
+  - npm run build
 after_success:
-- cd dist
-- git init
-- git config user.name 'keika299'
-- git config user.email 'keika299@gmail.com'
-- git add -A
-- git commit -m 'Update'
-- '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && git
-  push --quiet -f https://${GH_TOKEN}@github.com/keika299/kiritan-timer.git master:gh-pages'
+  - cd dist
+  - git init
+  - git config user.name 'keika299'
+  - git config user.email 'keika299@gmail.com'
+  - git add -A
+  - git commit -m 'Update'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && git push --quiet -f https://${GH_TOKEN}@github.com/keika299/kiritan-timer.git master:gh-pages'
 env:
   global:
     - secure: "TOIQKq8Q7up0QFUziPJIaH1F9c9W4cKH+iKWDKpcY4nlxgXKdx/zu/J/PVQFRKi+EVE//3ZbS/5tZ3naQHJqFyrj1mpMdl5UaYUkxpfl1gi2sCyL1lPHZ+KUy+QAVp6olWsNhwQBoRhMoG/OFaiYAtFOwul+1iL1FLMa1gZb/lj7O0jxvED1NRTJJr9nH88GPwrg0WJyaNXX+/TbP6mWN70wPMeQB41mER3XgCsixNex1O639tpE3HXj1aNVzcNbEt3V5XPJpm/HQjosCg8mTiQYZ+KO9B+8UiSQf25ukSSUt/TbBqEPPpsZ7EGBP90qt4MdG36QeMSZz0OMgqcpvbtJM5Sm3XJY+PGLC/afidwgPVE0F2Tw8wr0rdvTlnn61yx6CTs2I15Z+Tb1ME0oPAHgUXnZg86yXDPqtplIxiaY0hMMAH2llCWw1+MDx3wioOH13QwheqKhF8MaJAzsotK8OIDJlLPogxJs+eEZk/ylOSeiCloVyNt7uYAqAkI32mT12PXNlvxCn46I1ljpKfj+Jp4ScXBgm0ur4XbHELm6wig8+yajRDzVJKRaoyDCYYpVtz4Yn4gMgJ3T0ZT5mwr4zS5gHb10JlaPfkwSxbCrPrIxOnozYAt3utdde+UidwliCVVmxaVRDLiqnZrpkvZydJFlosLaOowAIRrQy/o="
