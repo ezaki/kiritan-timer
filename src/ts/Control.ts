@@ -1,6 +1,8 @@
 import Stage from "./Stage";
 import CountDown from "./CountDown";
 
+declare var Notification: any;
+
 export default class Control {
 
     constructor() {
@@ -24,5 +26,9 @@ export default class Control {
         });
 
         countDown.registerAnimation();
+
+        if ('Notification' in window) {
+            Notification.requestPermission();
+        }
     }
 }

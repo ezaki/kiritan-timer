@@ -3,6 +3,8 @@ import Player from "./Player";
 import Floor from "./Floor";
 import Resource from "./Resource";
 
+declare var Notification: any;
+
 export default class CountDown {
 
     private stage: Stage;
@@ -45,6 +47,7 @@ export default class CountDown {
                 if ((<HTMLInputElement>document.getElementById('sound-switch')).checked) {
                     _this.stopSound.play();
                 }
+                _this.showNotification();
             }
             else {
                 _this.timerId = window.setTimeout(loop, 5);
@@ -57,6 +60,22 @@ export default class CountDown {
 
             }
         }());
+    }
+
+    showNotification() {
+        if ('Notification' in window && Notification.permission === 'granted') {
+            var notification = new Notification(
+                'きりぴょんタイマー',
+                {
+                    body: '…時間になりましたよ',
+                    icon: Resource.notifyIcon()
+                }
+            );
+
+            notification.addEventListener('click', () => {
+                notification.close();
+            });
+        }
     }
     
     stopCountDown() {
