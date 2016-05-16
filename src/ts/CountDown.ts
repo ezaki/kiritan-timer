@@ -36,19 +36,18 @@ export default class CountDown {
 
         var _this = this;
         (function loop () {
-            _this.timerId = window.setTimeout(loop, 5);
             var nowTime = (new Date()).getTime();
             var elapsedTime = nowTime - _this.startTime;
             if (_this.takeTime < elapsedTime) {
                 _this.stage.time = 0;
                 _this.titleDom.text = "…時間です";
                 _this.timerDisplay.innerText = "…時間です";
-                window.clearTimeout(_this.timerId);
                 if ((<HTMLInputElement>document.getElementById('sound-switch')).checked) {
                     _this.stopSound.play();
                 }
             }
             else {
+                _this.timerId = window.setTimeout(loop, 5);
                 _this.stage.time = elapsedTime;
                 _this.remainingTime = _this.takeTime - elapsedTime;
                 var sec = Math.ceil(_this.remainingTime * 0.001);
